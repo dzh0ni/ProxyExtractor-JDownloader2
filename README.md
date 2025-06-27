@@ -131,11 +131,11 @@ archivo `GetProxies_JDownloader.ps1` en Windows y `Proxies_JDownloader.sh` en Li
 | Icono            | Nombre              | Descripción                                |
 |------------------|---------------------|--------------------------------------------|
 | :file_folder:    | imágenes            | Carpeta para imágenes                      |
+| :file_folder:    | Linux               | Carpeta principal para ejecutar en Linux   |
+| :file_folder:    | Windows             | Carpeta principal para ejecutar en Windows |
 | :page_facing_up: | .gitattributes      | Archivo para configuración de Git          |
 | :page_facing_up: | LICENSE             | Archivo de licencia                        |
 | :book:           | README.md           | Archivo de documentación principal         |
-| :file_folder:    | Windows             | Carpeta principal para ejecutar en Windows |
-| :file_folder:    | Linux               | Carpeta principal para ejecutar en Linux   |
 
 ## :star2: Contribuciones
 
