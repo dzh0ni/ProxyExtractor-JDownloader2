@@ -1,4 +1,6 @@
-﻿# Extractor de Proxies para JDownloader 2 :octocat: 
+﻿![logo](https://multianime.com.mx/wp-content/uploads/2020/08/anime-404-gomen-.jpg)
+
+# Extractor de Proxies para JDownloader 2 :octocat: 
 
 ## :information_source: Descripción
 Extractor de Proxies para [JDownloader 2](https://jdownloader.org/es/download/index) es una herramienta eficiente diseñada en PowerShell y Bash para automatizar la extracción y conversión de listas de proxies, haciéndolas compatibles con JDownloader 2. Este script simplifica el proceso de gestionar grandes volúmenes de proxies, transformándolos en un formato que JDownloader puede utilizar directamente, permitiendo la descarga más rápida y anónima a través de proxies.
@@ -13,13 +15,13 @@ Estas fuentes proporcionan una amplia gama de proxies que puedes transformar y c
 
 ### En Windows:
 
-![logo](https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/ProxyExtractor-JDownloader2/blob/main/Imagenes/ProxyExtractor-JDownloader2-Windows.png)
+![logo](https://github.com/dzh0ni/ProxyExtractor-JDownloader2/blob/main/Imagenes/ProxyExtractor-JDownloader2-Windows.png)
 
 Para instalar y ejecutar el script Extractor de Proxies para JDownloader 2, sigue estos pasos:
 
 1. Descarga el archivo ZIP del repositorio:
 
-   [Descargar el repositorio](https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/Proxy-Extractor-JDownloader2/archive/refs/heads/main.zip)
+   [Descargar el repositorio](https://github.com/dzh0ni/ProxyExtractor-JDownloader2/archive/refs/heads/main.zip)
 
 2. Extrae el contenido del archivo ZIP:
 
@@ -35,10 +37,9 @@ Sigue estos pasos para ejecutar el script.
 
 2. Ejecuta el script:
 
-   Dentro de la carpeta descomprimida, haz doble clic en uno de los siguientes archivos para ejecutar el script:
+   Dentro de la carpeta descomprimida, haz doble clic en el siguiente archivo para ejecutar el script:
 
    - `RunGetProxies_JDownloader.cmd` 
-   - `RunGetProxies_JDownloader.bat` 
 
 3. **Visualiza los resultados:**
 
@@ -47,11 +48,11 @@ Sigue estos pasos para ejecutar el script.
 
 ### En Linux:
 
-![logo](https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/ProxyExtractor-JDownloader2/blob/main/Imagenes/ProxyExtractor-JDownloader2-Linux.png)
+![logo](https://github.com/dzh0ni/ProxyExtractor-JDownloader2/blob/main/Imagenes/ProxyExtractor-JDownloader2-Linux.png)
 
 ```bash
 sudo rm -rf ProxyExtractor-JDownloader2
-sudo git clone https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/ProxyExtractor-JDownloader2.git
+sudo git clone https://github.com/dzh0ni/ProxyExtractor-JDownloader2.git
 sudo chmod +x ProxyExtractor-JDownloader2/Linux/*
 cd ProxyExtractor-JDownloader2/Linux
 ls -ltha
@@ -145,6 +146,4 @@ Las contribuciones son bienvenidas. Si tienes ideas para mejorar este script o e
 - Uso Responsable: Este script está diseñado para ser utilizado en dispositivos y redes que te pertenecen o para las que tienes permiso de uso. No lo utilices para actividades no autorizadas.
 
 ## :email: Contacto 
-* :busts_in_silhouette: **Dzhoni**: [GitHub](https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/ProxyExtractor-JDownloader2) - Desarrollador Proxy Extractor JDownloader 2
-
-☆ https://t.me/AAAAAEXQOSyIpN2JZ0ehUQ [  ⃘⃤꙰✰ ] ☆
+* :busts_in_silhouette: **dZh0ni**: [Telegram](https://t.me/dZh0ni_Dev) - Desarrollador Proxy Extractor JDownloader 2
