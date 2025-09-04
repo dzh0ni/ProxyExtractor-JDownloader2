@@ -98,11 +98,6 @@ socks5://89.145.162.81:1080
 socks5://67.201.33.10:25283
 ```
 
-## :star2: Contribuciones
-
-Las contribuciones son bienvenidas. Si tienes ideas para mejorar este proyecto o encuentras 
-algún problema, siéntete libre de abrir un pull request o issue.
-
 ## :bookmark_tabs: Notas
 
 - Ejecuta con permisos adecuados según el sistema operativo.
@@ -136,14 +131,19 @@ archivo `GetProxies_JDownloader.ps1` en Windows y `Proxies_JDownloader.sh` en Li
 | :page_facing_up: | .gitattributes      | Archivo para configuración de Git          |
 | :page_facing_up: | LICENSE             | Archivo de licencia                        |
 | :book:           | README.md           | Archivo de documentación principal         |
+| :book:           | Readme.html	        | Versión HTML del README                    |
 
 ## :star2: Contribuciones
 
-Las contribuciones son bienvenidas. Si tienes ideas para mejorar este script o encuentras algún problema, siéntete libre de abrir un *pull request* o *issue*.
+Tus aportes son bienvenidos.  
+Si deseas mejorar este proyecto, añadir nuevas funciones o corregir errores, abre un **pull request**.  
+En caso de detectar un problema, por favor crea un **issue** para que pueda revisarse.
 
-## :warning: Advertencias
+## :warning: Advertencia de Uso
 
-- Uso Responsable: Este script está diseñado para ser utilizado en dispositivos y redes que te pertenecen o para las que tienes permiso de uso. No lo utilices para actividades no autorizadas.
+Este proyecto está pensado con fines educativos y de administración en redes propias.  
+**No lo utilices en sistemas o redes sin autorización**, ya que hacerlo podría constituir una actividad ilegal.
 
 ## :email: Contacto 
-* :busts_in_silhouette: **dZh0ni**: [Telegram](https://t.me/dZh0ni_Dev) - Desarrollador Proxy Extractor JDownloader 2
+
+- :busts_in_silhouette: dZh0ni: [Telegram](https://t.me/dZh0ni_Dev) - Desarrollador Proxy Extractor JDownloader 2
