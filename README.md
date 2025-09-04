@@ -129,9 +129,9 @@ archivo `GetProxies_JDownloader.ps1` en Windows y `Proxies_JDownloader.sh` en Li
 | :file_folder:    | Linux               | Carpeta principal para ejecutar en Linux   |
 | :file_folder:    | Windows             | Carpeta principal para ejecutar en Windows |
 | :page_facing_up: | .gitattributes      | Archivo para configuración de Git          |
-| :page_facing_up: | LICENSE             | Archivo de licencia                        |
+| :page_facing_up: | LICENSE             | Archivo de licencia del proyecto           |
 | :book:           | README.md           | Archivo de documentación principal         |
-| :book:           | Readme.html	        | Versión HTML del README                    |
+| :book:           | Readme.html	        | Versión HTML del README para visualización en navegador |
 
 ## :star2: Contribuciones
 
