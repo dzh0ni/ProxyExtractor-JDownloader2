@@ -104,17 +104,17 @@ Las contribuciones son bienvenidas. Si tienes ideas para mejorar este proyecto o
 algún problema, siéntete libre de abrir un pull request o issue.
 
 ## :bookmark_tabs: Notas
-Este script permite la conversión de proxies para su uso en JDownloader 2 de manera automatizada y sencilla.
 
-- Extracción Automática: Procesa automáticamente proxies desde un archivo de texto.
-- Conversión de Formato: Convierte proxies al formato requerido por JDownloader 2.
-- Soporte para Windows y Linux: Incluye scripts para ambos sistemas operativos.
+- Ejecuta con permisos adecuados según el sistema operativo.
+- Guarda los archivos generados para mantenerlos organizados.
+- Elimina archivos no necesarios para evitar accesos no autorizados.
 
-## :star2: Características 
+## :star2: Características
 
-- Automatización: Simplifica la conversión y gestión de proxies para JDownloader 2.
-- Organización: Agrupa funcionalidades relacionadas para un acceso rápido y eficiente.
-- Actualización: Incluye funciones para mantener el script actualizado.
+- Automatización: Procesa y convierte proxies automáticamente.
+- Organización: Archivos separados para fácil consulta.
+- Multiplataforma: Compatible con Windows y Linux.
+- Actualización: Funciones para mantener el script actualizado.
 
 ## :hammer_and_wrench: Requisitos 
 

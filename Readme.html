@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Extractor de Proxies para JDownloader 2</title>
+<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1071/1071164.png">
+<style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; padding: 20px; transition: background 0.3s, color 0.3s; }
+    h1, h2, h3 { color: #2c3e50; }
+    h1 { font-size: 2em; }
+    h2 { margin-top: 1.5em; }
+    h3 { margin-top: 1em; }
+    code { background: #eee; padding: 2px 6px; border-radius: 4px; }
+    pre { background: #eee; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    table, th, td { border: 1px solid #ccc; }
+    th, td { padding: 8px; text-align: left; }
+    .note { background: #e6f7ff; border-left: 4px solid #1e90ff; padding: 10px; margin: 10px 0; color: #0077cc; }
+    .warning { background: #ffe6e6; border-left: 4px solid #ff4d4d; padding: 10px; margin: 10px 0; color: #ff0000; }
+    a { color: #2980b9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Modo oscuro */
+    body.dark-mode { background: #121212; color: #e0e0e0; }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 { color: #bb86fc; }
+    body.dark-mode code, body.dark-mode pre { background: #1e1e1e; color: #cf6679; }
+    body.dark-mode table, body.dark-mode th, body.dark-mode td { border-color: #333; }
+    body.dark-mode th { background: #1f1f1f; color: #bb86fc; }
+    body.dark-mode tr:nth-child(even) { background-color: #1a1a1a; }
+    body.dark-mode tr:nth-child(odd) { background-color: #1c1c1c; }
+    body.dark-mode a { color: #03dac6; }
+    body.dark-mode .note { background: #003366; border-left: 4px solid #3399ff; color: #66ccff; }
+    body.dark-mode .warning { background: #330000; border-left: 4px solid #ff4d4d; color: #ff4d4d; }
+
+    /* Botón de modo oscuro */
+    #darkModeBtn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #2980b9;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: background 0.3s;
+    }
+    #darkModeBtn:hover { background: #1c5980; }
+</style>
+</head>
+<body>
+
+<button id="darkModeBtn">Modo Oscuro</button>
+
+<img src="https://multianime.com.mx/wp-content/uploads/2020/08/anime-404-gomen-.jpg" 
+     alt="Network Profile Tool Logo" 
+     style="max-width:400px; height: auto; float: left; margin: 0 20px 20px 0;">
+     
+<h1>Extractor de Proxies para JDownloader 2</h1>
+
+<h2>Descripción</h2>
+<p>Extractor de Proxies para <a href="https://jdownloader.org/es/download/index">JDownloader 2</a> es una herramienta en PowerShell y Bash para automatizar la extracción y conversión de listas de proxies, haciendo que sean compatibles con JDownloader 2. Esto permite descargar más rápido y con mayor anonimato</p>
+
+<h2>Instalación</h2>
+<ol>
+<li>Descarga el archivo ZIP del repositorio: <a href="https://github.com/dzh0ni/ProxyExtractor-JDownloader2/archive/refs/heads/main.zip">Descargar el repositorio</a></li>
+<li>Extrae el contenido del archivo ZIP en una carpeta de tu elección.</li>
+<li>En Linux: Ejecuta los comandos desde la terminal:
+<pre>
+sudo rm -rf ProxyExtractor-JDownloader2
+sudo git clone https://github.com/dzh0ni/ProxyExtractor-JDownloader2.git
+sudo chmod +x ProxyExtractor-JDownloader2/Linux/*
+cd ProxyExtractor-JDownloader2/Linux
+ls -ltha
+</pre>
+</li>
+</ol>
+
+<h2>Modo de Uso</h2>
+<ol>
+<li>Navega al directorio del script.</li>
+<li>Ejecuta el script:
+    <ul>
+        <li>Windows: <code>RunGetProxies_JDownloader.cmd</code></li>
+        <li>Linux: <code>./Proxies_JDownloader.sh</code></li>
+    </ul>
+</li>
+<li>Visualiza los resultados:
+    <ul>
+        <li>Progreso en consola.</li>
+        <li>Archivos generados:
+            <ul>
+                <li><code>proxies.txt</code></li>
+                <li><code>proxies_jdownloader.txt</code></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+</ol>
+
+<h2>Ejemplo de Salida</h2>
+<h3>proxies.txt</h3>
+<pre>
+46.46.56.64:1080
+195.98.77.179:1080
+192.111.134.10:4145
+</pre>
+
+<h3>proxies_jdownloader.txt</h3>
+<pre>
+socks5://46.46.56.64:1080
+socks5://195.98.77.179:1080
+socks5://192.111.134.10:4145
+</pre>
+
+<div class="note">
+<h2>Notas</h2>
+<ul>
+<li>Ejecuta con permisos adecuados según el sistema operativo.</li>
+<li>Guarda los archivos generados para mantenerlos organizados.</li>
+<li>Elimina archivos no necesarios para evitar accesos no autorizados.</li>
+</ul>
+</div>
+
+<div class="note">
+<h2>Características</h2>
+<ul>
+<li>Automatización: Procesa y convierte proxies automáticamente.</li>
+<li>Organización: Archivos separados para fácil consulta.</li>
+<li>Multiplataforma: Compatible con Windows y Linux.</li>
+<li>Actualización: Funciones para mantener el script actualizado.</li>
+</ul>
+</div>
+
+<h2>Requisitos</h2>
+<ul>
+<li>Sistema Operativo: Windows o Linux</li>
+<li>Dependencias: PowerShell (Windows) o Bash (Linux)</li>
+</ul>
+
+<h2>Estructura del Repositorio</h2>
+<table>
+<tr><th>Icono</th><th>Nombre</th><th>Descripción</th></tr>
+<tr><td>📁</td><td>imágenes</td><td>Carpeta para imágenes</td></tr>
+<tr><td>📁</td><td>Linux</td><td>Carpeta principal para Linux</td></tr>
+<tr><td>📁</td><td>Windows</td><td>Carpeta principal para Windows</td></tr>
+<tr><td>📄</td><td>.gitattributes</td><td>Archivo para configuración de Git</td></tr>
+<tr><td>📄</td><td>LICENSE</td><td>Archivo de licencia</td></tr>
+<tr><td>📄</td><td>README.md</td><td>Archivo de documentación principal</td></tr>
+<tr><td>📄</td><td>README.html</td><td>Versión HTML del README</td></tr>
+<tr><td>📄</td><td>RunGetProxies_JDownloader.cmd</td><td>Script para ejecutar en Windows</td></tr>
+<tr><td>📄</td><td>Proxies_JDownloader.sh</td><td>Script para ejecutar en Linux</td></tr>
+</table>
+
+<h2>Contribuciones</h2>
+<p>Abre pull request o issue si encuentras problemas o mejoras.</p>
+
+<div class="warning">
+<p><strong>Advertencias:</strong> Uso Responsable: Este script está diseñado para ser utilizado únicamente en dispositivos y redes que te pertenezcan o para las que tengas permiso de uso. No lo uses para actividades no autorizadas.</p>
+</div>
+
+<h2>Contacto</h2>
+<p>dZh0ni: <a href="https://t.me/dZh0ni_Dev">Telegram</a> - Desarrollador de Proxy Extractor JDownloader 2</p>
+
+<script>
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    darkModeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+</script>
+
+</body>
+</html>
