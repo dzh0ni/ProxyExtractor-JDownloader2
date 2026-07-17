@@ -48,6 +48,17 @@ No hay instalación. Solo sigue estos pasos:
 
 ---
 
+## 🌐 Fuentes de Datos Recomendadas
+
+Para obtener resultados óptimos, se recomienda extraer las listas de proxies de fuentes confiables y actualizadas. Una vez obtenidas, simplemente pégalas en la herramienta para su procesamiento.
+
+### 🚀 Sitios de extracción sugeridos:
+*   **[hmy.name](https://hmy.name/proxy-list/)** — Excelente para listas masivas de alta rotación.
+*   **[hide.mn](https://hide.mn/es/proxy-list/)** — Listas filtradas con detalles de velocidad y anonimato.
+
+> [!TIP]
+> Una vez procesadas con nuestro motor, puedes importar la lista directamente en [JDownloader 2](https://jdownloader.org/es/download/index) para maximizar tu velocidad de descarga.
+
 ## 📂 Estructura del Proyecto
 
 | Archivo | Descripción |
