@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Intelligence Engine | Nexaia Group</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1071/1071164.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nexaia-bg: #05070a;
+            --nexaia-sidebar: #0d1117;
+            --nexaia-card: #161b22;
+            --nexaia-accent: #3b82f6;
+            --nexaia-accent-glow: rgba(59, 130, 246, 0.4);
+            --nexaia-border: #30363d;
+            --nexaia-text: #f0f6fc;
+            --nexaia-text-dim: #8b949e;
+            --nexaia-success: #10b981;
+            --nexaia-danger: #ef4444;
+            --nexaia-info: #0ea5e9;
+            --glass: rgba(13, 17, 23, 0.85);
+            --btn-hover-bg: #21262d;
+        }
+
+        /* --- TRANSICIÓN GLOBAL NEXAIA --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.2s ease; }
+
+        body {
+            background-color: var(--nexaia-bg);
+            color: var(--nexaia-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .app-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            padding: 15px 25px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--nexaia-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .brand { display: flex; align-items: center; gap: 15px; }
+        .brand i { font-size: 1.6rem; color: var(--nexaia-accent); filter: drop-shadow(0 0 10px var(--nexaia-accent-glow)); }
+        .brand h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px; color: white; }
+
+        aside {
+            background: var(--nexaia-sidebar);
+            border-right: 1px solid var(--nexaia-border);
+            padding: 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--nexaia-accent);
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        main { padding: 25px; overflow-y: auto; }
+
+        /* --- BOTONES MEJORADOS (AURA & SCALE) --- */
+        .btn {
+            padding: 10px 18px; border-radius: 8px; border: 1px solid var(--nexaia-border);
+            background: var(--nexaia-card); color: white; cursor: pointer;
+            font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.2s ease;
+        }
+        .btn:hover { background: var(--btn-hover-bg); border-color: #484f58; }
+        .btn:active { transform: scale(0.94); }
+
+        .btn-primary { 
+            background: var(--nexaia-accent); 
+            border-color: var(--nexaia-accent); 
+            color: white; 
+            font-weight: 600;
+        }
+        .btn-primary:hover { 
+            box-shadow: 0 0 15px var(--nexaia-accent-glow);
+            border-color: var(--nexaia-accent);
+        }
+
+        .btn-success { 
+            background: var(--nexaia-success); 
+            border-color: var(--nexaia-success); 
+            color: #052e16; 
+            font-weight: 600; 
+        }
+        .btn-success:hover { 
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            border-color: var(--nexaia-success);
+        }
+
+        .btn-danger { 
+            background: var(--nexaia-danger); 
+            border-color: var(--nexaia-danger); 
+            color: white; 
+        }
+        .btn-danger:hover { 
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+            border-color: var(--nexaia-danger);
+        }
+
+        /* --- TABS & CARDS --- */
+        .tabs-nav {
+            display: flex; gap: 6px; margin-bottom: 20px;
+            background: var(--nexaia-card); padding: 5px; border-radius: 12px;
+            width: fit-content; border: 1px solid var(--nexaia-border);
+        }
+        .tab-btn {
+            padding: 10px 20px; border: none; background: transparent;
+            color: var(--nexaia-text-dim); cursor: pointer; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 500; transition: all 0.3s;
+        }
+        .tab-btn.active { background: var(--nexaia-accent); color: white; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
+
+        .card { background: var(--nexaia-card); border: 1px solid var(--nexaia-border); border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+        .input-area {
+            width: 100%; height: 350px; background: #0d1117; border: 1px solid var(--nexaia-border);
+            border-radius: 10px; color: #e6edf3; padding: 18px; font-family: 'Fira Code', monospace;
+            font-size: 0.85rem; resize: none; outline: none;
+        }
+        .input-area:focus { border-color: var(--nexaia-accent); }
+
+        /* --- PROTOCOL BUTTONS --- */
+        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin-top: 15px; }
+        .protocol-btn { 
+            padding: 12px; text-align: center; background: #0d1117; border: 1px solid var(--nexaia-border); 
+            border-radius: 8px; cursor: pointer; font-size: 0.8rem; transition: all 0.3s ease;
+        }
+        .protocol-btn:hover { 
+            border-color: var(--nexaia-accent); 
+            background: rgba(59, 130, 246, 0.1); 
+            transform: scale(1.05);
+            box-shadow: 0 0 10px var(--nexaia-accent-glow);
+        }
+        .protocol-btn i { display: block; margin-bottom: 5px; font-size: 1.1rem; color: var(--nexaia-accent); }
+
+        /* --- STATS & PREVIEW --- */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-bottom: 25px; }
+        .stat-card { background: var(--nexaia-card); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid var(--nexaia-border); }
+        .stat-card .value { display: block; font-size: 1.6rem; font-weight: 700; color: var(--nexaia-accent); }
+        .stat-card .label { font-size: 0.65rem; color: var(--nexaia-text-dim); text-transform: uppercase; margin-top: 8px; letter-spacing: 1px; }
+        .preview-dark { background: #0d1117; color: var(--nexaia-success); padding: 15px; border-radius: 8px; max-height: 400px; overflow-y: auto; font-family: 'Fira Code', monospace; white-space: pre; border: 1px solid var(--nexaia-border); font-size: 0.85rem; }
+        .hidden { display: none !important; }
+
+        /* --- TOASTS --- */
+        #toast-container { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+        .toast {
+            background: var(--nexaia-card); border-left: 4px solid var(--nexaia-accent);
+            padding: 16px 28px; border-radius: 8px; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            margin-bottom: 12px; display: flex; align-items: center; gap: 14px; color: white;
+            animation: slideInRight 0.4s ease-out;
+        }
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* --- SOURCE CODE LINK --- */
+        .github-link { color: var(--nexaia-accent); text-decoration: none; font-size: 0.75rem; display: block; margin-top: 5px; }
+        .github-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div id="toast-container"></div>
+
+<div class="app-container">
+    <header>
+        <div class="brand">
+            <i class="fas fa-shield-halved"></i>
+            <h1>Proxy Intelligence Engine</h1>
+        </div>
+        <button class="btn btn-primary" id="extractBtn"><i class="fas fa-wand-magic-sparkles"></i> Ejecutar Extracción</button>
+    </header>
+
+    <aside>
+        <div class="sidebar-section">
+            <h3 style="color: var(--nexaia-info);"><i class="fas fa-filter"></i> Procesamiento</h3>
+            <p style="font-size: 0.75rem; color: var(--nexaia-text-dim); line-height: 1.4;">
+                El motor extraerá automáticamente IPs y Puertos válidos (1-65535) de cualquier texto.
+            </p>
+        </div>
+
+        <div class="sidebar-section">
+            <h3 style="color: var(--nexaia-success);"><i class="fas fa-download"></i> Formatos JDownloader</h3>
+            <div class="protocol-grid">
+                <div class="protocol-btn" onclick="convertProxy('http')"><i class="fas fa-globe"></i>HTTP</div>
+                <div class="protocol-btn" onclick="convertProxy('https')"><i class="fas fa-lock"></i>HTTPS</div>
+                <div class="protocol-btn" onclick="convertProxy('socks4')"><i class="fas fa-network-wired"></i>S4</div>
+                <div class="protocol-btn" onclick="convertProxy('socks5')"><i class="fas fa-shield-virus"></i>S5</div>
+                <div class="protocol-btn" onclick="convertProxy('socks4a')"><i class="fas fa-bolt"></i>S4A</div>
+            </div>
+        </div>
+
+        <!-- SOURCE CODE SECTION -->
+        <div class="sidebar-section" style="margin-top: auto; border-top: 1px solid var(--nexaia-border); padding-top: 20px;">
+            <h3 style="font-size: 0.65rem;"><i class="fas fa-code"></i> SOURCE CODE</h3>
+            <p style="font-size: 0.6rem; color: var(--nexaia-text-dim); line-height: 1.5;">
+                Optimizado para JDownloader 2<br>
+                Pattern: <b>IP:PORT</b>
+            </p>
+            <a href="https://github.com/dzh0ni/ProxyExtractor-JDownloader2" target="_blank" class="github-link">
+                <i class="fab fa-github"></i> GitHub Repository
+            </a>
+        </div>
+    </aside>
+
+    <main>
+        <div class="stats-grid">
+            <div class="stat-card"><span class="value" id="stat-raw">0</span><span class="label">Líneas Leídas</span></div>
+            <div class="stat-card"><span class="value" id="stat-found" style="color: var(--nexaia-success);">0</span><span class="label">Proxies Encontrados</span></div>
+            <div class="stat-card"><span class="value" id="stat-invalid" style="color: var(--nexaia-danger);">0</span><span class="label">Inválidos</span></div>
+        </div>
+
+        <nav class="tabs-nav">
+            <button class="tab-btn active" data-tab="tab-input"><i class="fas fa-file-import"></i> Entrada (Dump)</button>
+            <button class="tab-btn" data-tab="tab-results"><i class="fas fa-file-export"></i> Lista Limpia</button>
+            <button class="tab-btn" data-tab="tab-jdownloader"><i class="fas fa-download"></i> JDownloader Format</button>
+        </nav>
+
+        <!-- TAB: INPUT -->
+        <div id="tab-input" class="tab-content">
+            <div class="card">
+                <textarea id="dump" class="input-area" placeholder="Pegue aquí el contenido del recolector (texto sucio, logs, etc.)..."></textarea>
+                <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                    <div style="display:flex; gap:12px;">
+                        <button class="btn" id="pasteBtn"><i class="fas fa-paste"></i> Pegar</button>
+                        <button class="btn btn-danger" id="clearBtn"><i class="fas fa-trash"></i> Limpiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: RESULTS -->
+        <div id="tab-results" class="tab-content hidden">
+            <div class="card">
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:15px;">
+                    <h3 style="font-size: 0.8rem; color: var(--nexaia-accent);">IP:PORT EXTRAÍDOS</h3>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-success" onclick="copyToClipboard('res-clean')"><i class="fas fa-copy"></i> Copiar</button>
+                        <button class="btn btn-success" onclick="downloadFile('res-clean', 'proxies_limpios.txt')"><i class="fas fa-download"></i> Descargar</button>
+                    </div>
+                </div>
+                <div id="res-clean" class="preview-dark">— Sin datos —</div>
+            </div>
+        </div>
+
+        <!-- TAB: JDOWNLOADER -->
+        <div id="tab-jdownloader" class="tab-content hidden">
+            <div class="card">
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:15px;">
+                    <h3 style="font-size: 0.8rem; color: var(--nexaia-accent);">FORMATO LISTO PARA JDOWNLOADER</h3>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-success" onclick="copyToClipboard('res-jdown')"><i class="fas fa-copy"></i> Copiar</button>
+                        <button class="btn btn-success" onclick="downloadFile('res-jdown', 'jdownloader_proxies.txt')"><i class="fas fa-download"></i> Descargar</button>
+                    </div>
+                </div>
+                <div id="res-jdown" class="preview-dark">— Seleccione un protocolo en el menú lateral —</div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    let state = { extractedProxies: [] };
+
+    const notify = (msg, type = 'info') => {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        const colors = { success: '#10b981', danger: '#ef4444', info: '#3b82f6' };
+        toast.style.borderLeftColor = colors[type];
+        toast.innerHTML = `<i class="fas fa-circle-info"></i> ${msg}`;
+        document.getElementById('toast-container').appendChild(toast);
+        setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 500); }, 3000);
+    };
+
+    document.getElementById('extractBtn').onclick = () => {
+        const input = document.getElementById('dump').value;
+        const lines = input.split(/\r?\n/);
+        state.extractedProxies = [];
+        let invalidCount = 0;
+        const proxyRegex = /([0-9]{1,3}(?:\.[0-9]{1,3}){3})[\s:]+([0-9]{1,5})/;
+
+        lines.forEach(line => {
+            if (!line.trim()) return;
+            const match = line.match(proxyRegex);
+            if (match) {
+                const ip = match[1], port = parseInt(match[2]);
+                if (port >= 1 && port <= 65535) state.extractedProxies.push({ ip, port });
+                else invalidCount++;
+            } else {
+                if(line.trim().length > 0) invalidCount++;
+            }
+        });
+
+        document.getElementById('stat-raw').textContent = lines.length;
+        document.getElementById('stat-found').textContent = state.extractedProxies.length;
+        document.getElementById('stat-invalid').textContent = invalidCount;
+
+        const cleanText = state.extractedProxies.map(p => `${p.ip}:${p.port}`).join('\n');
+        document.getElementById('res-clean').textContent = cleanText || "— Sin datos —";
+        document.getElementById('res-jdown').textContent = "— Seleccione un protocolo en el menú lateral —";
+
+        notify(`Extracción completada: ${state.extractedProxies.length} encontrados`, "success");
+        switchTab('tab-results');
+    };
+
+    function convertProxy(protocol) {
+        if (state.extractedProxies.length === 0) return notify("Primero debes extraer proxies en la pestaña Entrada", "danger");
+        const formatted = state.extractedProxies.map(p => `${protocol}://${p.ip}:${p.port}`).join('\n');
+        document.getElementById('res-jdown').textContent = formatted;
+        notify(`Convertido a formato ${protocol.toUpperCase()}`, "success");
+        switchTab('tab-jdownloader');
+    }
+
+    function switchTab(id) {
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.remove('hidden');
+        const btn = document.querySelector(`[data-tab="${id}"]`);
+        if(btn) btn.classList.add('active');
+    }
+
+    document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
+        btn.onclick = () => switchTab(btn.dataset.tab);
+    });
+
+    document.getElementById('clearBtn').onclick = () => {
+        document.getElementById('dump').value = "";
+        state.extractedProxies = [];
+        notify("Limpiado", "info");
+    };
+
+    document.getElementById('pasteBtn').onclick = async () => {
+        const text = await navigator.clipboard.readText();
+        document.getElementById('dump').value = text;
+        notify("Pegado", "success");
+    };
+
+    function copyToClipboard(id) {
+        const text = document.getElementById(id).textContent;
+        if (text.includes("—")) return notify("No hay nada para copiar", "warning");
+        navigator.clipboard.writeText(text);
+        notify("Copiado al portapapeles", "success");
+    }
+
+    function downloadFile(id, filename) {
+        const text = document.getElementById(id).textContent;
+        if (text.includes("—")) return notify("No hay datos para descargar", "danger");
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = filename;
+        a.click();
+        window.URL.revokeObjectURL(url);
+        notify(`Descargando ${filename}...`, "success");
+    }
+</script>
+
+</body>
+</html>
