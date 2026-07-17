@@ -1,4 +1,4 @@
-# <img src="https://cdn-icons-png.flaticon.com/512/1071/1071164.png" width="40"> Proxy Intelligence Engine | Nexaia Group
+# <img src="https://cdn-icons-png.flaticon.com/512/1071/1071164.png" width="40"> Proxy Intelligence Engine
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-2.0.0-blue?style=for-the-badge" alt="Version">
@@ -93,5 +93,5 @@ Para obtener resultados óptimos, se recomienda extraer las listas de proxies de
 - **Telegram:** [@dzh0ni_Dev](https://t.me/dzh0ni_Dev)
 
 <p align="right">
-  <img src="https://img.shields.io/badge/Powered%20by-Nexaia%20Group-blue?style=flat-square" alt="Nexaia Group">
+  <img src="https://img.shields.io/badge/Powered%20by-Nexaia%20Group-blue?style=flat-square" alt="NG">
 </p>
